@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import './alluser.css'
 
-import { getUser } from '../../service/api'
+import { getUsers, deleteUser} from '../../service/api'
+import {CiEdit} from 'react-icons/ci'
+import {RiDeleteBin6Line} from 'react-icons/ri'
+import { useNavigate } from 'react-router-dom'
 
 export default function Alluser() {
 
   const [users, setUsers] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllUsers();
@@ -13,8 +18,19 @@ export default function Alluser() {
 
 
   const getAllUsers = async () => {
-    const res = await getUser();
+    const res = await getUsers();
     setUsers(res.data)
+  }
+  
+
+  const edit = (user) => {
+    navigate(`/edit/${user._id}`)
+  }
+
+
+  const deleteUserDetails = async (id) => {
+    await deleteUser(id)
+    getAllUsers();
   }
   return (
     <>
@@ -27,15 +43,17 @@ export default function Alluser() {
           <th>User Name</th>
           <th>Email</th>
           <th>Phone</th>
+          <th></th>
         </tr>
         {
           users.map(user => (
-            <tr>
+            <tr key={user._id}>
               <td>{user._id}</td>
               <td>{user.name}</td>
               <td>{user.username}</td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
+              <td><button id='edit' onClick={(e) => edit(user)}><CiEdit/></button> <button id='delete' onClick={() => deleteUserDetails(user._id)}><RiDeleteBin6Line/></button></td>
             </tr>
           ))
         }

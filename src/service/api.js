@@ -12,7 +12,7 @@ export const adduser =async (data) => {
 }
 
 
-export const getUser = async() => {
+export const getUsers = async() => {
     try {
         return await axios.get (`${url}/all`)
         
@@ -20,4 +20,31 @@ export const getUser = async() => {
         console.log("erroe while calling", e)
     }
     
+}
+
+
+export const getUser = async (id) => {
+    try{
+        return await axios.get(`${url}/${id}`)
+    }
+    catch(e) {
+
+    }
+}
+
+export const edituser =async (data, id) => {
+    try {
+        return await axios.put(`${url}/${id}`, data)
+    } catch (e) {
+        console.log("Error in calling  add user api", e);        
+    }
+}
+
+
+export const deleteUser = async (id) => {
+    try{
+        return await axios.delete(`${url}/${id}`);
+    }catch(e){
+        console.log(e)
+    }
 }

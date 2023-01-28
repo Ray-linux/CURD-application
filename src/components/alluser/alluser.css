@@ -9,7 +9,7 @@
     margin: 30px;
 }
 .table_container table{
-    width: 70%;
+    width: 80%;
     border-collapse: collapse;
 }
 
@@ -19,12 +19,29 @@
 
 .table_container table tr th{
     background-color: rgb(78, 223, 179);
-    height: 45px;
+    height: 50px;
     border: none;
 }
 
 .table_container table tr td{
     text-align: center;
-    height: 37px;
+    height: 45px;
     border-bottom: .5px solid;
+}
+
+.table_container table tr td button{
+    width: 3rem;
+    height: 35px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+}
+
+#edit{
+    background-color: rgb(9, 143, 233);
+    
+}
+#delete{
+    background-color: rgb(238, 70, 70);
 }

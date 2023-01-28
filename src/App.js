@@ -5,6 +5,7 @@ import Home from "./components/home/Home";
 import Nav from "./components/nav/Nav";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import EditUser from "./components/edituser/EditUser";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element = {<Home />} />
           <Route path='/all' element = {<Alluser />} />
           <Route path='/add' element = {<AddUser />} />
+          <Route path='/edit/:id' element = {<EditUser />} />
         </Routes>
       </BrowserRouter>
     </>
