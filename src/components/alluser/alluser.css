@@ -1,0 +1,30 @@
+.table_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.table_container h2{
+    margin: 30px;
+}
+.table_container table{
+    width: 70%;
+    border-collapse: collapse;
+}
+
+.table_container table tr {
+    border: none;
+}
+
+.table_container table tr th{
+    background-color: rgb(78, 223, 179);
+    height: 45px;
+    border: none;
+}
+
+.table_container table tr td{
+    text-align: center;
+    height: 37px;
+    border-bottom: .5px solid;
+}
